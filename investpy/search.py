@@ -4,6 +4,7 @@
 import requests
 from unidecode import unidecode
 
+from investpy.globals import PROXIES
 from .utils.constant import COUNTRY_FILTERS, FLAG_FILTERS, PAIR_FILTERS, PRODUCT_FILTERS
 from .utils.extra import random_user_agent
 from .utils.search_obj import SearchObj
@@ -154,7 +155,7 @@ def search_quotes(text, products=None, countries=None, n_results=None):
     user_limit = True if n_results is not None else False
 
     while True:
-        req = requests.post(url, headers=headers, data=params)
+        req = requests.post(url, headers=headers, data=params, proxies=PROXIES)
 
         if req.status_code != 200:
             raise ConnectionError(
@@ -285,7 +286,7 @@ def search_events(text, importances=None, countries=None, n_results=None):
     total_results = None
 
     while True:
-        response = requests.post(url, data=params, headers=headers)
+        response = requests.post(url, data=params, headers=headers, proxies=PROXIES)
 
         if response.status_code != 200:
             raise ConnectionError(

@@ -211,7 +211,7 @@ class SearchObj(object):
             "Connection": "keep-alive",
         }
 
-        req = requests.get(url, headers=headers)
+        req = requests.get(url, headers=headers, proxies=PROXIES)
 
         if req.status_code != 200:
             raise ConnectionError(
@@ -363,7 +363,7 @@ class SearchObj(object):
 
         url = "https://www.investing.com/instruments/Service/GetTechincalData"
 
-        req = requests.post(url, headers=headers, data=params)
+        req = requests.post(url, headers=headers, data=params, proxies=PROXIES)
 
         if req.status_code != 200:
             raise ConnectionError(
@@ -425,7 +425,7 @@ class SearchObj(object):
             "Connection": "keep-alive",
         }
 
-        req = requests.get(url, headers=headers)
+        req = requests.get(url, headers=headers, proxies=PROXIES)
 
         if req.status_code != 200:
             raise ConnectionError(
@@ -551,7 +551,7 @@ class SearchObj(object):
 
         url = "https://www.investing.com/instruments/HistoricalDataAjax"
 
-        req = requests.post(url, headers=headers, data=params)
+        req = requests.post(url, headers=headers, data=params, proxies=PROXIES)
 
         if req.status_code != 200:
             raise ConnectionError(

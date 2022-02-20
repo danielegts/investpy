@@ -482,6 +482,12 @@ INTERVAL_FILTERS = {
 # https://www.investing.com/funds/vanguard-500-index-admiral-technical
 FUNDS_INTERVAL_FILTERS = {"daily": 60 * 60 * 24, "weekly": "week", "monthly": "month"}
 
+QUOTES_INTERVALS = {
+    "daily" : "P1D",
+    "weekly" : "P1W",
+    "monthly" : "P1M",
+}
+
 USER_AGENTS = [
     "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.5; en-US; rv:1.9.1b3) Gecko/20090305"
     " Firefox/3.1b3 GTB5",

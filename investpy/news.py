@@ -246,7 +246,7 @@ def economic_calendar(
     results = list()
 
     while True:
-        req = requests.post(url, headers=headers, data=data)
+        req = requests.post(url, headers=headers, data=data, proxies=PROXIES)
 
         root = fromstring(req.json()["data"])
         table = root.xpath(".//tr")

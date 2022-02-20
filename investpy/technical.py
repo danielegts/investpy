@@ -165,7 +165,7 @@ def technical_indicators(name, country, product_type, interval="daily"):
 
     url = "https://www.investing.com/instruments/Service/GetTechincalData"
 
-    req = requests.post(url, headers=headers, data=data_values)
+    req = requests.post(url, headers=headers, data=data_values, proxies=PROXIES)
 
     if req.status_code != 200:
         raise ConnectionError(
@@ -345,7 +345,7 @@ def moving_averages(name, country, product_type, interval="daily"):
 
     url = "https://www.investing.com/instruments/Service/GetTechincalData"
 
-    req = requests.post(url, headers=headers, data=data_values)
+    req = requests.post(url, headers=headers, data=data_values, proxies=PROXIES)
 
     if req.status_code != 200:
         raise ConnectionError(
@@ -549,7 +549,7 @@ def pivot_points(name, country, product_type, interval="daily"):
 
     url = "https://www.investing.com/instruments/Service/GetTechincalData"
 
-    req = requests.post(url, headers=headers, data=data_values)
+    req = requests.post(url, headers=headers, data=data_values, proxies=PROXIES)
 
     if req.status_code != 200:
         raise ConnectionError(

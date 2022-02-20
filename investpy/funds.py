@@ -320,7 +320,7 @@ def get_fund_recent_data(
 
     url = "https://www.investing.com/instruments/HistoricalDataAjax"
 
-    req = requests.post(url, headers=head, data=params)
+    req = requests.post(url, headers=head, data=params, proxies=PROXIES)
 
     if req.status_code != 200:
         raise ConnectionError(
@@ -632,7 +632,7 @@ def get_fund_historical_data(
 
         url = "https://www.investing.com/instruments/HistoricalDataAjax"
 
-        req = requests.post(url, headers=head, data=params)
+        req = requests.post(url, headers=head, data=params, proxies=PROXIES)
 
         if req.status_code != 200:
             raise ConnectionError(
@@ -830,7 +830,7 @@ def get_fund_information(fund, country, as_json=False):
         "Connection": "keep-alive",
     }
 
-    req = requests.get(url, headers=head)
+    req = requests.get(url, headers=head, proxies=PROXIES)
 
     if req.status_code != 200:
         raise ConnectionError(
@@ -1007,7 +1007,7 @@ def get_funds_overview(country, as_json=False, n_results=100):
         + "-funds?&issuer_filter=0"
     )
 
-    req = requests.get(url, headers=head)
+    req = requests.get(url, headers=head, proxies=PROXIES)
 
     if req.status_code != 200:
         raise ConnectionError(

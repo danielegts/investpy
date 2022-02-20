@@ -335,7 +335,7 @@ def get_certificate_recent_data(
 
     url = "https://www.investing.com/instruments/HistoricalDataAjax"
 
-    req = requests.post(url, headers=head, data=params)
+    req = requests.post(url, headers=head, data=params, proxies=PROXIES)
 
     if req.status_code != 200:
         raise ConnectionError(
@@ -666,7 +666,7 @@ def get_certificate_historical_data(
 
         url = "https://www.investing.com/instruments/HistoricalDataAjax"
 
-        req = requests.post(url, headers=head, data=params)
+        req = requests.post(url, headers=head, data=params, proxies=PROXIES)
 
         if req.status_code != 200:
             raise ConnectionError(
@@ -874,7 +874,7 @@ def get_certificate_information(certificate, country, as_json=False):
         "Connection": "keep-alive",
     }
 
-    req = requests.get(url, headers=head)
+    req = requests.get(url, headers=head, proxies=PROXIES)
 
     if req.status_code != 200:
         raise ConnectionError(
@@ -1050,7 +1050,7 @@ def get_certificates_overview(country, as_json=False, n_results=100):
         + "-certificates"
     )
 
-    req = requests.get(url, headers=head)
+    req = requests.get(url, headers=head, proxies=PROXIES)
 
     if req.status_code != 200:
         raise ConnectionError(
